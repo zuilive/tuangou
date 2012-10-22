@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{~'<base h'.'ref="'.ini('settings.site_url').'/" />'}
+<meta http-equiv="Content-Type" content="text/html; charset={ini:settings.charset}" />
+<title>{echo ($this->Title != '') ? $this->Title.' - ' : ''}{ini:settings.site_name}{conf page_title}</title>
+<meta name="Keywords" content="{~ini('settings.'.(mocod()=='index.main'?'index_':'').'meta_keywords')}" />
+<meta name="Description" content="{~ini('settings.'.(mocod()=='index.main'?'index_':'').'meta_description')}" />
+<script type="text/javascript">
+var thisSiteURL = '{ini:settings.site_url}/';
+</script>
+<link rel="shortcut icon" href="favicon.ico" />
+<!--{~ui('loader')->css('main')}-->
+<!--{~ui('loader')->js('@jquery')}-->
+<!--{~ui('loader')->js('@common')}-->
+{echo '<!-'.'-[if IE 6]>'}
+<!--{~ui('loader')->js('DD_belatedPNG')}-->
+<script type="text/javascript">
+DD_belatedPNG.fix('*');
+</script>
+{echo '<![endif]-'.'->'}
+<script type="text/javascript">
+$(document).ready(function(){
+if ($(".m960").height()<400)
+{
+$(".m960").height(400);
+}
+});
+</script>
+{if false==DEBUG}
+{~ui('loader')->js('@error.clear')}
+{/if}
+</head>
+<body>
+<div class="m_bg">
+<a name="htop" id="htop"></a>
+<div class="header" style=" position:relative; z-index:9999;">
+<div class="h960">
+<div class="at_logo">
+<div style="float:right;width: 240;color:#999999" class="logo_lib"><nobr>
+<a href="http://www.51googo.com" >&raquo; 返回首页<lb>&nbsp;&nbsp;|</lb></a>
+<a onclick="this.style.behavior=’url(#default#homepage)’;this.setHomePage(’http://www.51googo.com’);" href="http://www.51googo.com">设为首页<lb>&nbsp;&nbsp;|</lb></a>
+<a href="javascript:window.external.addFavorite('http://www.51googo.com','《e网易购》')">加入收藏夹</a></nobr>
+<div style="clear:both"></div>
+</div><div style="clear:both"></div>
+<div class="logo" style="height:77px"><a href="./"><img src="templates/default/images/zhanweifu.gif" /></a></div>
+
+{eval $unms = ui('style')->allowMulti() ? false : true}
+
+{~ui('style')->loadCSS()}
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".menu_tq").mouseover(function(){$(".menu_tqb").show();$(".menu_tq").addClass("menu_tqs");});
+$(".menu_tq").mouseout(function(){$(".menu_tqb").hide();$(".menu_tq").removeClass("menu_tqs");});
+});
+</script>
+<div class="t_nav t_nav1">
+<div class="h960">
+<div class="sign" >
+<!--{if MEMBER_ID > 0}-->
+<script type="text/javascript">
+$(document).ready(function(){
+if ($(".sp_member").width()>75){
+$(".sp_member").width(75) ;    }
+});
+</script>
+<div class="menu" style=" margin-left:5px;"><em><span style="float:left;">欢迎您，</span><span class="sp_member" style="max-width:75px; height:35px; overflow:hidden; display:block; float:left; ">{MEMBER_NAME}</span>！<a href="?mod=account&code=logout">退出</a></em></div>
+{if MEMBER_ROLE_ID==2}<div class="menu" style=" margin-left:5px;"><a href="admin.php">管理后台</a></div>{/if} 
+{if MEMBER_ROLE_ID==6}<div class="menu" style=" margin-left:5px;"><a href="?mod=seller">商家管理</a></div>{/if} 
+<div class="menu"> <div class="menu_tq">我的团购<div class="menu_tqb"><a href="?mod=me&code=coupon" class="sh_t">我的团购券</a><a href="?mod=me&code=order">我的订单</a><a href="?mod=me&code=bill">消费详单</a><a href="?mod=me&code=setting">账户设置</a><a href="?mod=me&code=address">收货地址</a><a href="?mod=recharge">账户充值</a></div></div></div>
+<!--{else}-->
+<div class="menu" style=" margin-left:5px;">
+您好！欢迎您的到来。<a href="?mod=account&code=login">登录</a> | <a href="?mod=account&code=register">注册</a>
+</div>
+<!--{/if}-->
+</div>
+<div class="headernav_list">
+{loop $this->Config['__navs'] $i $nav}
+<a href="{$nav['url']}" title="{$nav['title']}" target="{$nav['target']}" class="{$nav['class']}"><span>{$nav['name']}</span></a>
+{/loop}
+</div>
+</div>
+</div>
+<!--{eval echo ui('loader')->css($this->Module.'.'.$this->Code)}-->

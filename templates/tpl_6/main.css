@@ -1,0 +1,38 @@
+﻿*{
+  margin: 0 auto;
+
+}
+body{background-color:#E3FAD6;}
+#bander{height:100px;background: #C1FBA3 url(images/bander_1.png) no-repeat 47%;}
+#bander .index{float:right}
+#bander .index a{line-height:22px; padding:0px 5px;color: #000000;text-decoration: none;font-size: 13px;}
+lb {color: #999;font-size: 16px;}
+#navigation{height:35px;margin-bottom:10px;background-color: #55C01B;}
+#navigation a{padding:0px 16px;line-height:35px;color:#ffffff;font-weight:900;text-decoration: none;font-size:16px;display:block;float:left;width:68px;}
+#navigation a:hover{background-color: #E3FAD6;color:#55C01B;border-left: 1px solid #55C01B;border-right: 1px solid #55C01B;padding:0px 15px;}
+.sp{background-color: #E3FAD6;color:#55C01B;}
+.clear{clear:both}
+#content{background-color:#E3FAD6;padding-bottom:25px;}
+.flash{border: 1px solid #55C01B;background-color:#ffffff;}
+.e_list{float:left;width:708px;border: 1px solid #55C01B;background-color:#ffffff;margin-top:7px;}
+.e_add{float:left;width:235px;margin-left:12px;}
+.rh{color:#EE5238;;font-weight:900;font-size:20px;font-family: arial;font-style: normal;}
+.hs{color:#6d6b6b;font-size:14px;font-weight:600;line-height:25px;}
+.e_list_title{height:30px;background-color:#EBF7D7}
+.e_list_img{float:left;width:328px;height:197px;}
+.imgs_displayer .window,.imgs_displayer .window #imageslider{width:328px;height:197px;}
+.e_list_img img{width:308px;margin:7px 10px;}
+.e_list_info{float:left;margin-left:10px;width:370px;}
+.time{ line-height:30px;font-size: 13px;font-weight: 900;margin-top: 5px;float:none;height:30px;width:708px;}
+.info{color:#999999;line-height: 23px;padding-right:10px;text-align:left;}
+.e_list_left{float:left;font-size:13px;width:210px;text-align: left;}
+.e_list_right{float:left;font-weight: 900;text-align: left;}
+.hr{width:90%;border-top: 1px dashed #55C01B;padding-bottom:10px;overflow-x: hidden;}
+.hr2{height: 3px;width: 100%;margin: 0 auto;background-color: #55C01A;overflow-x: hidden;}
+.e_add_bo{margin-top:7px;border: 1px solid #55C01B;background-color:#ffffff;}
+.e_add_title{line-height:30px;background-color:#EBF7D7;font-weight:900;padding-left:10px;}
+.e_add_content{padding:8px;line-height:25px;font-size:13px;}
+.e_add_info{padding:3px 5px;}
+.t_r{
+	padding-top:8px;
+}

@@ -1,0 +1,53 @@
+﻿
+<div id="content">
+    <div style="width:960px;">
+	<div class="flash">
+	<OBJECT
+      codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
+      classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 width=958 height=300><PARAM NAME="movie" VALUE="gallery.swf"><PARAM NAME="quality" VALUE="high"><PARAM NAME="wmode" VALUE="transparent">
+                              <embed src="gallery.swf" width="958"
+      height="300" quality="high"
+      pluginspage="http://www.macromedia.com/go/getflashplayer"
+      type="application/x-shockwave-flash" wmode="transparent"></embed>
+      </OBJECT>
+	</div><link type="text/css" rel="stylesheet" href="http://localhost/tiantian/templates/tpl_6/main.css" title="styles1">
+	<div class="e_list">
+	   <div class="e_list_title"> </div>
+	   {loop $product $item}
+		{eval $icc++}
+		{if $icc == 1}
+	      <div class="e_product">
+		    <div class="e_list_img">{eval ui('iimager')->single($item['id'], $item['imgs'][0])}</div>
+			<div  class=".e_list_info">
+			    <div class="time" >2012年9月12日 22:00:00至 23:00:00</div>
+				<div class="info">{$item['name']}</div>
+				<div style="margin-top:5px">
+				    <div class="e_list_left">
+					    <div>共有<span class="rh">{$item['succ_buyers']}</span>人购买</div>
+						<div>共为用户节省：<span class="rh">￥{$item['price']-$item['nowprice']}</span></div>
+						<div style="margin-top: 12px;"><a href="http://www.51googo.com/tuangou/?view=1" style="display: block;padding-top:5px;"> <img src="images/bu.png" border=0;></a></div>
+					</div>
+					<div class="e_list_right">
+					    <div><span class="hs">原价：</span><span style="text-decoration: line-through;font-weight: 900;">{$item['price']}</span></div>
+						<div><span class="hs">折扣：</span><span class="rh">{$item['discount']}</span></div>
+						<div><span class="hs">现价：</span>￥4999</div>
+						<div><span class="hs">节省：</span>{$item['price']-$item['nowprice']}</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		  </div>
+		  <div class="hr"></div>
+{/if}
+{/loop}
+
+<div class="product_list_pager">{~page_moyo()}</div>
+
+
+
+</div>
+<div class="t_r">
+<!--{~ui('widget')->load('index_home')}-->
+</div>
+    </div>
