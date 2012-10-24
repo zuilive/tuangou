@@ -13,24 +13,42 @@
 	</div><link type="text/css" rel="stylesheet" href="http://localhost/tiantian/templates/tpl_6/main.css" title="styles1">
 	<div class="e_list">
 	   <div class="e_list_title"> </div>
+		<script>
+		//unix时间戳转换为日期
+		function js_date_time(unixtime) {
+		    var timestr = new Date(parseInt(unixtime) * 1000);
+		    var datetime = timestr.toLocaleString();
+		   // var datetime = datetime.replace(/年|月/g,"-");
+		    return datetime;
+		}
+
+
+		function js_time(remaintime){
+			var now=new Date();
+			var now=now.getTime()/1000;
+			now=js_date_time(remaintime+now);
+			return now;
+		}
+
+		</script>
+
 	   {loop $product $item}
-		{eval $icc++}
-		{if $icc == 1}
+
 	      <div class="e_product">
 		    <div class="e_list_img">{eval ui('iimager')->single($item['id'], $item['imgs'][0])}</div>
 			<div  class=".e_list_info">
-			    <div class="time" >2012年9月12日 22:00:00至 23:00:00</div>
+			    <div class="time" ><script>var time=js_date_time({$item['begintime']});document.write(time);</script>&nbsp;&nbsp;至&nbsp;&nbsp;<script>var time=js_time({$item['time_remain']});document.write(time);</script>		</div>
 				<div class="info">{$item['name']}</div>
 				<div style="margin-top:5px">
 				    <div class="e_list_left">
 					    <div>共有<span class="rh">{$item['succ_buyers']}</span>人购买</div>
-						<div>共为用户节省：<span class="rh">￥{$item['price']-$item['nowprice']}</span></div>
-						<div style="margin-top: 12px;"><a href="http://www.51googo.com/tuangou/?view=1" style="display: block;padding-top:5px;"> <img src="images/bu.png" border=0;></a></div>
+						<div>为用户节省：<span class="rh">￥{$item['price']-$item['nowprice']}</span></div>
+						<div style="margin-top: 12px;"><a href="?view={$item['id']}" style="display: block;padding-top:5px;"> <img src="images/bu.png" border=0;></a></div>
 					</div>
 					<div class="e_list_right">
 					    <div><span class="hs">原价：</span><span style="text-decoration: line-through;font-weight: 900;">{$item['price']}</span></div>
 						<div><span class="hs">折扣：</span><span class="rh">{$item['discount']}</span></div>
-						<div><span class="hs">现价：</span>￥4999</div>
+						<div><span class="hs">现价：</span>￥{$item['nowprice']}</div>
 						<div><span class="hs">节省：</span>{$item['price']-$item['nowprice']}</div>
 					</div>
 					<div class="clear"></div>
@@ -39,7 +57,7 @@
 			<div class="clear"></div>
 		  </div>
 		  <div class="hr"></div>
-{/if}
+
 {/loop}
 
 <div class="product_list_pager">{~page_moyo()}</div>
